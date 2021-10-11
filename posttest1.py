@@ -51,7 +51,7 @@ def klasifikasi_covid():
 	print("============================================================================")
 	print("|                 PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                 |")
 	print("============================================================================")
-	objek = int(input("| Masukkan Jumlah Kab/Kota : "))
+	objek = int(input("| Masukkan Jumlah Kab/Kota             : "))
 	print("============================================================================")
 	while objek > 0:
 		nama = input("| Masukkan Nama Kota/Kab               : ")
