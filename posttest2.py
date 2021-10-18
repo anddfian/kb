@@ -9,33 +9,37 @@ df_covid = pd.DataFrame()
 def clear_screen():
 	os.system("cls" if os.name == "nt" else "clear")
 
-def back_to_menu():
+def back_to_show_zona():
+	input("\nTekan 'Enter' untuk kembali...")
+	show_zona()
+
+def back_to_show_menu():
 	input("\nTekan 'Enter' untuk kembali...")
 	show_menu()
 
 def close_app():
 	clear_screen()
-	print("============================================================================")
-	print("| Terima kasih telah menggunakan Aplikasi Klasifikasi Zona Risiko COVID-19 |")
-	print("============================================================================")
+	print("========================================================================================================")
+	print("|               Terima kasih telah menggunakan Aplikasi Klasifikasi Zona Risiko COVID-19               |")
+	print("========================================================================================================")
 	exit()
 
 def show_menu():
 	clear_screen()
-	print("============================================================================")
-	print("|                 PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                 |")
-	print("============================================================================")
-	print("|                                   OLEH                                   |")
-	print("============================================================================")
-	print("|                     ANDI ALFIAN BAHTIAR (2009106002)                     |")
-	print("|                            INFORMATIKA A 2020                            |")
-	print("|                              FAKULTAS TEKNIK                             |")
-	print("|                          UNIVERSITAS MULAWARMAN                          |")
-	print("============================================================================")
-	print("| [1] Lihat Data Zona Risiko COVID-19                                      |")
-	print("| [2] Tambah Data Zona Risiko COVID-19                                     |")
-	print("| [0] Keluar                                                               |")
-	print("============================================================================")
+	print("========================================================================================================")
+	print("|                               PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                               |")
+	print("========================================================================================================")
+	print("|                                                 OLEH                                                 |")
+	print("========================================================================================================")
+	print("|                                   ANDI ALFIAN BAHTIAR (2009106002)                                   |")
+	print("|                                          INFORMATIKA A 2020                                          |")
+	print("|                                            FAKULTAS TEKNIK                                           |")
+	print("|                                        UNIVERSITAS MULAWARMAN                                        |")
+	print("========================================================================================================")
+	print("| [1] Lihat Data Zona Risiko COVID-19                                                                  |")
+	print("| [2] Tambah Data Zona Risiko COVID-19                                                                 |")
+	print("| [0] Keluar                                                                                           |")
+	print("========================================================================================================")
 	try:
 		selected_menu = int(input("| Pilih menu> "))
 		if selected_menu == 1:
@@ -45,15 +49,15 @@ def show_menu():
 		elif selected_menu == 0:
 			close_app()
 		else:
-			print("============================================================================")
-			print("| Error: Kamu memilih menu yang salah!                                     |")
-			print("============================================================================")
-			back_to_menu()
+			print("========================================================================================================")
+			print("| Error: Kamu memilih menu yang salah!                                                                 |")
+			print("========================================================================================================")
+			back_to_show_menu()
 	except ValueError:
-		print("============================================================================")
-		print("| Error: Kamu memilih menu yang salah!                                     |")
-		print("============================================================================")
-		back_to_menu()
+		print("========================================================================================================")
+		print("| Error: Kamu memilih menu yang salah!                                                                 |")
+		print("========================================================================================================")
+		back_to_show_menu()
 
 def create_zona():
 	dict_covid = {
@@ -66,11 +70,11 @@ def create_zona():
 		"Status": []
 	}
 	clear_screen()
-	print("============================================================================")
-	print("|                 PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                 |")
-	print("============================================================================")
+	print("========================================================================================================")
+	print("|                               PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                               |")
+	print("========================================================================================================")
 	objek = int(input("| Masukkan Jumlah Kab/Kota             : "))
-	print("============================================================================")
+	print("========================================================================================================")
 	if os.path.exists(csv_filename_covid):
 		df_covid = pd.read_csv(csv_filename_covid)
 		if(len(df_covid) > 0):
@@ -98,7 +102,7 @@ def create_zona():
 			risiko = "Zona Risiko Rendah"
 		elif kasus_aktif < 1:
 			risiko = "Zona Tidak Terdampak"
-		print("============================================================================")
+		print("========================================================================================================")
 		print("| Status                               :", risiko)
 		dict_covid["ID"].append(id)
 		dict_covid["Nama"].append(nama)
@@ -107,22 +111,22 @@ def create_zona():
 		dict_covid["Meninggal"].append(meninggal)
 		dict_covid["Kasus Aktif"].append(kasus_aktif)
 		dict_covid["Status"].append(risiko)
-		print("============================================================================")
+		print("========================================================================================================")
 		objek -= 1
 	df_covid = pd.DataFrame(dict_covid)
 	df_covid.to_csv("covid19.csv", index=False)
-	back_to_menu()
+	back_to_show_menu()
 
 def show_zona():
 	clear_screen()
-	print("============================================================================")
-	print("|                 PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                 |")
-	print("============================================================================")
-	print("| [1] Tabel                                                                |")
-	print("| [2] Teks                                                                 |")
-	print("| [3] Kembali                                                              |")
-	print("| [0] Keluar                                                               |")
-	print("============================================================================")
+	print("========================================================================================================")
+	print("|                               PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                               |")
+	print("========================================================================================================")
+	print("| [1] Tabel                                                                                            |")
+	print("| [2] Teks                                                                                             |")
+	print("| [3] Kembali                                                                                          |")
+	print("| [0] Keluar                                                                                           |")
+	print("========================================================================================================")
 	try:
 		selected_menu = int(input("| Pilih menu> "))
 		if selected_menu == 1:
@@ -134,15 +138,15 @@ def show_zona():
 		elif selected_menu == 0:
 			close_app()
 		else:
-			print("============================================================================")
-			print("| Error: Kamu memilih menu yang salah!                                     |")
-			print("============================================================================")
-			back_to_menu()
+			print("========================================================================================================")
+			print("| Error: Kamu memilih menu yang salah!                                                                 |")
+			print("========================================================================================================")
+			back_to_show_zona()
 	except ValueError:
-		print("============================================================================")
-		print("| Error: Kamu memilih menu yang salah!                                     |")
-		print("============================================================================")
-		back_to_menu()
+		print("========================================================================================================")
+		print("| Error: Kamu memilih menu yang salah!                                                                 |")
+		print("========================================================================================================")
+		back_to_show_zona()
 
 def show_zona_table():
 	clear_screen()
@@ -179,13 +183,13 @@ def show_zona_table():
 	else:
 		print("| Error: File CSV tidak tersedia!                                                                      |")
 		print("========================================================================================================")
-	back_to_menu()
+	back_to_show_menu()
 
 def show_zona_text():
 	clear_screen()
-	print("============================================================================")
-	print("|                 PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                 |")
-	print("============================================================================")
+	print("========================================================================================================")
+	print("|                               PROGRAM KLASIFIKASI ZONA RISIKO COVID-19                               |")
+	print("========================================================================================================")
 	if os.path.exists(csv_filename_covid):
 		df_covid = pd.read_csv(csv_filename_covid)
 		if len(df_covid) > 0:
@@ -207,7 +211,7 @@ def show_zona_text():
 					count_zona[2] += 1
 				elif df_covid["Status"][i] == "Zona Tidak Terdampak":
 					count_zona[3] += 1
-				print("============================================================================")
+				print("========================================================================================================")
 			if count_zona[0] > 0:
 				print("| Jumlah Objek Status Zona Risiko Tinggi   :", count_zona[0])
 			if count_zona[1] > 0:
@@ -216,14 +220,14 @@ def show_zona_text():
 				print("| Jumlah Objek Status Zona Risiko Rendah   :", count_zona[2])
 			if count_zona[3] > 0:
 				print("| Jumlah Objek Status Zona Tidak Terdampak :", count_zona[3])
-			print("============================================================================")
+			print("========================================================================================================")
 		else:
-			print("| Error: Tidak ada data yang tersedia!                                     |")
-			print("============================================================================")
+			print("| Error: Tidak ada data yang tersedia!                                                                 |")
+			print("========================================================================================================")
 	else:
-		print("| Error: File CSV tidak tersedia!                                          |")
-		print("============================================================================")
-	back_to_menu()
+		print("| Error: File CSV tidak tersedia!                                                                      |")
+		print("========================================================================================================")
+	back_to_show_menu()
 
 if __name__ == "__main__":
 	while True:
