@@ -277,6 +277,7 @@ def show_zona_chart(selected_menu):
 	if os.path.exists(csv_filename_covid):
 		df_covid = pd.read_csv(csv_filename_covid)
 		if len(df_covid) > 0:
+			print("========================================================================================================")
 			if selected_menu == 1:
 				count_zona = [0, 0, 0, 0]
 				for i in range(len(df_covid)):
@@ -291,18 +292,25 @@ def show_zona_chart(selected_menu):
 				plt.title("Zona Risiko COVID-19")
 				plt.pie(count_zona, labels=["Zona Risiko Tinggi", "Zona Risiko Sedang", "Zona Risiko Rendah", "Zona Tidak Terdampak"])
 				plt.show()
+				print("| Data ditampilkan menggunakan diagram lingkaran agar dapat melihat jumlah presentasi data dengan      |")
+				print("| jumlah kategori yang sedikit.                                                                        |")
 			elif selected_menu == 2:
 				df_covid.plot(x="Nama", y="Terkonfirmasi", kind="bar", title="Pasien Terkonfirmasi")
 				plt.show()
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 3:
 				df_covid.plot(x="Nama", y="Sembuh", kind="bar", title="Pasien Sembuh")
 				plt.show()
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 4:
 				df_covid.plot(x="Nama", y="Meninggal", kind="bar", title="Pasien Meninggal")
 				plt.show()
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 5:
 				df_covid.plot(x="Nama", y="Kasus Aktif", kind="bar", title="Pasien Kasus Aktif")
 				plt.show()
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
+			print("========================================================================================================")
 		else:
 			print("| Error: Tidak ada data yang tersedia!                                                                 |")
 			print("========================================================================================================")
@@ -310,7 +318,6 @@ def show_zona_chart(selected_menu):
 		print("| Error: File CSV tidak tersedia!                                                                      |")
 		print("========================================================================================================")
 	back_to_show_menu()
-
 
 if __name__ == "__main__":
 	while True:
