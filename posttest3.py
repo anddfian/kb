@@ -289,28 +289,32 @@ def show_zona_chart(selected_menu):
 						count_zona[2] += 1
 					elif df_covid["Status"][i] == "Zona Tidak Terdampak":
 						count_zona[3] += 1
+				print("| Data ditampilkan menggunakan diagram lingkaran agar dapat melihat jumlah presentasi data dengan      |")
+				print("| jumlah kategori yang sedikit.                                                                        |")
+				print("========================================================================================================")
 				plt.title("Zona Risiko COVID-19")
 				plt.pie(count_zona, labels=["Zona Risiko Tinggi", "Zona Risiko Sedang", "Zona Risiko Rendah", "Zona Tidak Terdampak"])
 				plt.show()
-				print("| Data ditampilkan menggunakan diagram lingkaran agar dapat melihat jumlah presentasi data dengan      |")
-				print("| jumlah kategori yang sedikit.                                                                        |")
 			elif selected_menu == 2:
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
+				print("========================================================================================================")
 				df_covid.plot(x="Nama", y="Terkonfirmasi", kind="bar", title="Pasien Terkonfirmasi")
 				plt.show()
-				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 3:
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
+				print("========================================================================================================")
 				df_covid.plot(x="Nama", y="Sembuh", kind="bar", title="Pasien Sembuh")
 				plt.show()
-				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 4:
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
+				print("========================================================================================================")
 				df_covid.plot(x="Nama", y="Meninggal", kind="bar", title="Pasien Meninggal")
 				plt.show()
-				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
 			elif selected_menu == 5:
+				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
+				print("========================================================================================================")
 				df_covid.plot(x="Nama", y="Kasus Aktif", kind="bar", title="Pasien Kasus Aktif")
 				plt.show()
-				print("| Data ditampilkan menggunakan diagram batang agar dapat melihat jumlah data dengan detail             |")
-			print("========================================================================================================")
 		else:
 			print("| Error: Tidak ada data yang tersedia!                                                                 |")
 			print("========================================================================================================")
