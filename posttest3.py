@@ -301,7 +301,7 @@ def show_zona_chart(selected_menu):
 				df_covid.plot(x="Nama", y="Meninggal", kind="bar", title="Pasien Meninggal")
 				plt.show()
 			elif selected_menu == 5:
-				df_covid.plot(x="Nama", y="Kasus Aktif", kind="bar", title="Pasien Aktif")
+				df_covid.plot(x="Nama", y="Kasus Aktif", kind="bar", title="Pasien Kasus Aktif")
 				plt.show()
 		else:
 			print("| Error: Tidak ada data yang tersedia!                                                                 |")
