@@ -7,7 +7,7 @@ def count_cost_rute(cost_rute, vertex, currentPos, n, count, cost):
         total_cost.append(cost + cost_rute[currentPos][0])
         return
     for i in range(n):
-        if (vertex[i] == False and cost_rute[currentPos][i]):
+        if vertex[i] == False and cost_rute[currentPos][i]:
             vertex[i] = True
             count_cost_rute(cost_rute, vertex, i, n, count + 1, cost + cost_rute[currentPos][i])
             vertex[i] = False
